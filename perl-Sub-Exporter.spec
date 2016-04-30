@@ -4,7 +4,7 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.987
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Summary  : 'a sophisticated exporter for custom-built routines'
