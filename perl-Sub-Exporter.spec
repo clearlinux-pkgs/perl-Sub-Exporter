@@ -4,7 +4,7 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.987
-Release  : 12
+Release  : 13
 URL      : http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Summary  : 'a sophisticated exporter for custom-built routines'
@@ -65,10 +65,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/Sub/Exporter.pm
-/usr/lib/perl5/site_perl/5.26.0/Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/site_perl/5.26.0/Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/site_perl/5.26.0/Sub/Exporter/Util.pm
+/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter.pm
+/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Cookbook.pod
+/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Tutorial.pod
+/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Util.pm
 
 %files doc
 %defattr(-,root,root,-)
