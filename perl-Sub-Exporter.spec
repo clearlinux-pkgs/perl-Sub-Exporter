@@ -4,18 +4,15 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.987
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.987-1.debian.tar.xz
 Summary  : 'a sophisticated exporter for custom-built routines'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Sub-Exporter-license
-Requires: perl-Sub-Exporter-man
-Requires: perl(Data::OptList)
-Requires: perl(Params::Util)
-Requires: perl(Sub::Install)
+Requires: perl-Sub-Exporter-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 BuildRequires : perl(Data::OptList)
 BuildRequires : perl(Params::Util)
 BuildRequires : perl(Sub::Install)
@@ -25,6 +22,15 @@ This archive contains the distribution Sub-Exporter,
 version 0.987:
 a sophisticated exporter for custom-built routines
 
+%package dev
+Summary: dev components for the perl-Sub-Exporter package.
+Group: Development
+Provides: perl-Sub-Exporter-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-Sub-Exporter package.
+
+
 %package license
 Summary: license components for the perl-Sub-Exporter package.
 Group: Default
@@ -33,19 +39,11 @@ Group: Default
 license components for the perl-Sub-Exporter package.
 
 
-%package man
-Summary: man components for the perl-Sub-Exporter package.
-Group: Default
-
-%description man
-man components for the perl-Sub-Exporter package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n Sub-Exporter-0.987
-mkdir -p %{_topdir}/BUILD/Sub-Exporter-0.987/deblicense/
+cd ..
+%setup -q -T -D -n Sub-Exporter-0.987 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Sub-Exporter-0.987/deblicense/
 
 %build
@@ -70,13 +68,13 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Sub-Exporter
-cp LICENSE %{buildroot}/usr/share/doc/perl-Sub-Exporter/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/doc/perl-Sub-Exporter/deblicense_copyright
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/LICENSE
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -85,19 +83,19 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter.pm
-/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/site_perl/5.26.1/Sub/Exporter/Util.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Sub/Exporter.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Sub/Exporter/Cookbook.pod
+/usr/lib/perl5/vendor_perl/5.26.1/Sub/Exporter/Tutorial.pod
+/usr/lib/perl5/vendor_perl/5.26.1/Sub/Exporter/Util.pm
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-Sub-Exporter/LICENSE
-/usr/share/doc/perl-Sub-Exporter/deblicense_copyright
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Sub::Exporter.3
 /usr/share/man/man3/Sub::Exporter::Cookbook.3
 /usr/share/man/man3/Sub::Exporter::Tutorial.3
 /usr/share/man/man3/Sub::Exporter::Util.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Sub-Exporter/LICENSE
+/usr/share/package-licenses/perl-Sub-Exporter/deblicense_copyright
