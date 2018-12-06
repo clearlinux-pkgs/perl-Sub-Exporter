@@ -83,10 +83,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1Sub/Exporter.pm
-/usr/lib/perl5/vendor_perl/5.28.1Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/vendor_perl/5.28.1Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/vendor_perl/5.28.1Sub/Exporter/Util.pm
+/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter.pm
+/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Cookbook.pod
+/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Tutorial.pod
+/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Util.pm
 
 %files dev
 %defattr(-,root,root,-)
