@@ -4,14 +4,13 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.987
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.987-1.debian.tar.xz
-Summary  : 'a sophisticated exporter for custom-built routines'
+Summary  : A sophisticated exporter for custom-built routines
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Sub-Exporter-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Data::OptList)
 BuildRequires : perl(Params::Util)
@@ -22,29 +21,12 @@ This archive contains the distribution Sub-Exporter,
 version 0.987:
 a sophisticated exporter for custom-built routines
 
-%package dev
-Summary: dev components for the perl-Sub-Exporter package.
-Group: Development
-Provides: perl-Sub-Exporter-devel = %{version}-%{release}
-
-%description dev
-dev components for the perl-Sub-Exporter package.
-
-
-%package license
-Summary: license components for the perl-Sub-Exporter package.
-Group: Default
-
-%description license
-license components for the perl-Sub-Exporter package.
-
-
 %prep
 %setup -q -n Sub-Exporter-0.987
 cd ..
 %setup -q -T -D -n Sub-Exporter-0.987 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Sub-Exporter-0.987/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Sub-Exporter-0.987/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -83,19 +65,3 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter.pm
-/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/vendor_perl/5.28.1/Sub/Exporter/Util.pm
-
-%files dev
-%defattr(-,root,root,-)
-/usr/share/man/man3/Sub::Exporter.3
-/usr/share/man/man3/Sub::Exporter::Cookbook.3
-/usr/share/man/man3/Sub::Exporter::Tutorial.3
-/usr/share/man/man3/Sub::Exporter::Util.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Sub-Exporter/LICENSE
-/usr/share/package-licenses/perl-Sub-Exporter/deblicense_copyright
