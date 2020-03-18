@@ -4,7 +4,7 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.987
-Release  : 29
+Release  : 30
 URL      : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.987-1.debian.tar.xz
@@ -82,7 +82,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter
 cp %{_builddir}/Sub-Exporter-0.987/LICENSE %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/8ef1c633ec4461ee476450955da3fb6901e4dd77
-cp %{_builddir}/Sub-Exporter-0.987/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/8a24d0e62a6e0102122cbc87a2322ea45fe869f5
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/8a24d0e62a6e0102122cbc87a2322ea45fe869f5
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -110,7 +110,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Sub/Exporter.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/vendor_perl/5.30.1/Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/vendor_perl/5.30.1/Sub/Exporter/Util.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Sub/Exporter.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Sub/Exporter/Cookbook.pod
+/usr/lib/perl5/vendor_perl/5.30.2/Sub/Exporter/Tutorial.pod
+/usr/lib/perl5/vendor_perl/5.30.2/Sub/Exporter/Util.pm
