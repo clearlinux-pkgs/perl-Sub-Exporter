@@ -4,7 +4,7 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.988
-Release  : 34
+Release  : 35
 URL      : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.988.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.988.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.987-1.debian.tar.xz
@@ -110,7 +110,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Sub/Exporter.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Sub/Exporter/Cookbook.pod
-/usr/lib/perl5/vendor_perl/5.34.0/Sub/Exporter/Tutorial.pod
-/usr/lib/perl5/vendor_perl/5.34.0/Sub/Exporter/Util.pm
+/usr/lib/perl5/*
