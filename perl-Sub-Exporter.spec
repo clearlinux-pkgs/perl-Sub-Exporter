@@ -5,7 +5,7 @@
 #
 Name     : perl-Sub-Exporter
 Version  : 0.990
-Release  : 39
+Release  : 40
 URL      : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.990.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.990.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libs/libsub-exporter-perl/libsub-exporter-perl_0.987-1.debian.tar.xz
@@ -88,6 +88,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter
+cp %{_builddir}/Sub-Exporter-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/d13875bde4c7a864ea6cdbc087f79fb0130757df || :
 cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Sub-Exporter/8a24d0e62a6e0102122cbc87a2322ea45fe869f5 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
@@ -113,6 +114,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl-Sub-Exporter/8a24d0e62a6e0102122cbc87a2322ea45fe869f5
+/usr/share/package-licenses/perl-Sub-Exporter/d13875bde4c7a864ea6cdbc087f79fb0130757df
 
 %files perl
 %defattr(-,root,root,-)
