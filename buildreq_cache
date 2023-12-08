@@ -1,4 +1,5 @@
 0.991
 perl(Data::OptList)
+perl(Getopt::Long)
 perl(Params::Util)
 perl(Sub::Install)
